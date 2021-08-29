@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    .div-box {
+        height: 50px;
+        width: 50px;
+        background-color: black;
+    }
+
+    .red-box {
+        background-color: red;
+    }
+
+    .green-box {
+        background-color: green;
+    }
+
+    .pink-box {
+        background-color: pink;
+    }
+
+</style>
+<body>
+
+    <div id="app">
+
+        <!-- 1 -->
+        <!-- at he end class biding needs somthing as string which is valid class we can provide it in multiple ways -->
+        <!-- we are binding class property dynamically hear-->
+        <div :class="'div-box'">  </div>
+        <div :class="divClass">  </div>
+
+        <!-- 3  -->
+        <!-- we use class binding to condationally and dynamically bind our classes so many times we need to add or remove class base on some condation for that  do like this -->
+        <div class="div-box" :class="true ? 'red-box' : 'green-box'"></div>
+        <div class="div-box" :class="isGreen ? greenBox : 'red-box'"></div>
+        <!-- as you can see hear we are using ternory oprator to condosinally return class where we are using direct class names we use '' and in data property we use direct property name -->
+
+        <!-- 4 -->
+        <!-- as you can see that ternory thing looks vary ugle so we can use object syntext in class bindings provided by vue where key will be class name and value will be true or false to condationally add or remove class -->
+        <div class="div-box" :class="{'pink-box': isPink}"> </div>
+        <!-- as you can see pink-box key is class name which is string so its in ''  and isPink is Boolean and we can use as many classes as we want hear like this we can also return this object from our code as well-->
+
+        <!-- 5 -->
+        <!-- we can pass array to apply multiple classes as well -->
+        <div  :class="['div-box', 'red-box']"> </div>
+        <!-- when we are passing multiple classes at that time also we have to check sometime some condations to apply class or not for that you can use array and obj in combination -->
+        <div  :class="['div-box', {'pink-box': isPink}]"> </div>
+        <!-- hear div-box will apply alwase but pink-box is boolean base -->
+
+
+        <!-- 6 -->
+        <!-- some times we have to do some complex logic and then decide if we should add a class or not for that we can alwase use computed property which will return object which we want and it is also possible to use such computed propertys in style bindings as well-->
+        <div class="div-box" :class="setGreenOrNot">  </div>
+
+
+
+    </div>
+    
+</body>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./class.js"></script>
+</html>

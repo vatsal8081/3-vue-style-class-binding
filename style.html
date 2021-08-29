@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- 1 -->
+        <!-- we are binding style property dynamically hear-->
+        <!-- at he end style biding needs somthing as string which is valid style key value pair we can provide it in multiple ways -->
+        <div :style="'background-color:blue'"></div>
+        <div :style="redColor"></div>
+
+        <!-- 2 -->
+        <!-- to provide dynamic styles there is also a more cleane and recomended way in vue which is object syntaxt -->
+        <div :style="{'background-color': 'green'}"> </div>
+        <!-- it's just a object with key and value pair of style keep in mind we can't use - in key names in js so we have to explicitly convert it to string by giving '' and green is also a static value so we have to use '' there as well otherwise vue will go to find it in data properties -->
+
+        <div :style="{backgroundColor: 'black'}"></div>
+        <!-- to overcome headace of '' vue is providing batter way and it's remove - and use camelcase in property of css name vue will convert it for us but black is still static so we have to use in '' hear-->
+
+        <div :style="{backgroundColor: oranceColor}"> </div>
+        <div :style="{backgroundColor:'pink', height: `${height}px` }"> </div>
+        <!-- we are using dynamic property and mix of dynamic and static strings hear -->
+
+        <!-- 3 -->
+        <!-- it is also recomanded to use direct objects from data propertys insted of writing objects in templates to incress redablity use it if possible -->
+        <div :style="divStale1"></div>
+
+        <!-- 4 -->
+        <!-- some times we want to apply multiple style objects from data for that we can use [] syntex-->
+        <div :style="[divStyle2, divStyle3]"></div>
+
+
+        
+
+    </div>
+    
+</body>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./style.js"></script>
+</html>
